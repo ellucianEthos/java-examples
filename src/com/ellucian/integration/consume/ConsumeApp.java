@@ -17,6 +17,7 @@ public class ConsumeApp {
 
 	public static void main(String[] args) throws ClientProtocolException, IOException, InterruptedException {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
+		String apiKey = "API KEY";
 		String jwt = "";
 		int statusCode = 401;
 		
@@ -24,7 +25,7 @@ public class ConsumeApp {
 			if (statusCode != 200){
 				//get new token
 				HttpPost httpPost = new HttpPost("https://integrate.elluciancloud.com/auth");
-				httpPost.addHeader("authorization", "Bearer API KEY");
+				httpPost.addHeader("authorization", "Bearer " + apiKey);
 				httpPost.addHeader("cache-control", "no-cache");
 				CloseableHttpResponse tokenResponse = httpclient.execute(httpPost);
 	

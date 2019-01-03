@@ -11,6 +11,7 @@ public class ConsumeApp2 {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		int statusCode = 401;
+		String apiKey = "API KEY";
         String jwt = "";
         OkHttpClient client = new OkHttpClient();
         RequestBody payload = RequestBody.create(null, ""); // okhttp requires a payload for POSTs, however the /auth endpoint takes a null payload, which is created here.
@@ -29,7 +30,7 @@ public class ConsumeApp2 {
                 Request createToken = new Request.Builder()
                     .url("https://integrate.elluciancloud.com/auth")
                     .post(payload)
-                    .addHeader("authorization", "Bearer API KEY") // The authorization here is an API key from an application
+                    .addHeader("authorization", "Bearer " + apiKey) // The authorization here is an API key from an application
                     .addHeader("cache-control", "no-cache")
                     .build();
 
