@@ -14,6 +14,8 @@ public class GetExample2 {
 	public static void main(String[] args) throws ClientProtocolException, IOException {
 		OkHttpClient client = new OkHttpClient();
 		String jwt = "";
+
+		//change this variable to match your data
 		String apiKey = "API KEY";
 		
 		//get new token
@@ -27,9 +29,9 @@ public class GetExample2 {
 		jwt = "Bearer " + tokenResponse.body().string();
 		System.out.println(jwt);
 		
-		//get buildings resources
+		//get person-holds resources
 		Request proxyRequest = new Request.Builder()
-			.url("https://integrate.elluciancloud.com/api/buildings")
+			.url("https://integrate.elluciancloud.com/api/person-holds")
 			.get()
 			.addHeader("authorization", jwt)
 			.addHeader("accept", "application/json")

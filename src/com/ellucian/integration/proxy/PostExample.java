@@ -16,7 +16,11 @@ public class PostExample {
 	public static void main(String[] args) throws ClientProtocolException, IOException {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		String jwt = "";
+
+		//change these variables to match your data
 		String apiKey = "API KEY";
+		String personId = "080c43e1-1782-4ed9-98cf-1aa68810b179";
+		String detailId = "04664c5f-bac6-43bf-abe4-ac785be86416";
 		
 		//get new token
 		HttpPost httpPost = new HttpPost("https://integrate.elluciancloud.com/auth");
@@ -31,11 +35,13 @@ public class PostExample {
 			tokenResponse.close();
 		}
 		
-		//POST a new buildings resource
-		HttpPost httpPost2 = new HttpPost("https://integrate.elluciancloud.com/api/buildings");
+		//POST a new person-holds resource
+		HttpPost httpPost2 = new HttpPost("https://integrate.elluciancloud.com/api/person-holds");
 		httpPost2.addHeader("authorization", jwt);
-		httpPost2.addHeader("content-type", "application/vnd.hedtech.integration.v8+json");
-		HttpEntity requestEntity = EntityBuilder.create().setText("{ \"id\": \"00000000-0000-0000-0000-000000000000\", \"title\": \"new building\" }").build();
+		httpPost2.addHeader("content-type", "application/vnd.hedtech.integration.v6+json");
+		httpPost2.addHeader("accept", "application/json");
+		HttpEntity requestEntity = EntityBuilder.create().setText("{\"id\":\"00000000-0000-0000-0000-000000000000\",\"person\":{\"id\":\"" + personId +
+				"\"},\"startOn\":\"2012-03-30T04:00:00Z\",\"type\":{\"category\":\"academic\",\"detail\":{\"id\":\"" + detailId + "\"}}}").build();
 		httpPost2.setEntity(requestEntity);
 		CloseableHttpResponse proxyResponse = httpclient.execute(httpPost2);
 

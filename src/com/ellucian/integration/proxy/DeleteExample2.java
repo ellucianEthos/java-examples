@@ -12,6 +12,8 @@ public class DeleteExample2 {
 	public static void main(String[] args) throws IOException {
 		OkHttpClient client = new OkHttpClient();
 		String jwt = "";
+
+		//change these variables to match your data
 		String apiKey = "API KEY";
 		String id = "a2065aa3-bfe2-48d5-b742-453c2d53da91";
 		
@@ -26,9 +28,9 @@ public class DeleteExample2 {
 		jwt = "Bearer " + tokenResponse.body().string();
 		System.out.println(jwt);
 		
-		//PUT a buildings resources
+		//DELETE a person-holds resources
 		Request proxyRequest = new Request.Builder()
-			.url("https://integrate.elluciancloud.com/api/buildings/" + id)
+			.url("https://integrate.elluciancloud.com/api/person-holds/" + id)
 			.delete()
 			.addHeader("authorization", jwt)
 			.build();

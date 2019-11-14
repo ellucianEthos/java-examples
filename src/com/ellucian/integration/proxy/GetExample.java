@@ -16,6 +16,8 @@ public class GetExample {
 	public static void main(String[] args) throws ClientProtocolException, IOException {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		String jwt = "";
+
+		//change this variable to match your data
 		String apiKey = "API KEY";
 		
 		//get new token
@@ -31,8 +33,8 @@ public class GetExample {
 			tokenResponse.close();
 		}
 		
-		//get buildings resources
-		HttpGet httpGet = new HttpGet("https://integrate.elluciancloud.com/api/buildings");
+		//get person-holds resources
+		HttpGet httpGet = new HttpGet("https://integrate.elluciancloud.com/api/person-holds");
 		httpGet.addHeader("authorization", jwt);
 		httpGet.addHeader("accept", "application/json");
 		CloseableHttpResponse proxyResponse = httpclient.execute(httpGet);

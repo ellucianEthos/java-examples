@@ -16,6 +16,8 @@ public class DeleteExample {
 	public static void main(String[] args) throws ClientProtocolException, IOException {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		String jwt = "";
+
+		//change these variables to match your data
 		String apiKey = "API KEY";
 		String id = "8734be28-9f7e-4d31-963f-654712f37b4b";
 		
@@ -32,8 +34,8 @@ public class DeleteExample {
 			tokenResponse.close();
 		}
 		
-		//PUT a buildings resource
-		HttpDelete httpdelete = new HttpDelete("https://integrate.elluciancloud.com/api/buildings/" + id);
+		//DELETE a person-holds resource
+		HttpDelete httpdelete = new HttpDelete("https://integrate.elluciancloud.com/api/person-holds/" + id);
 		httpdelete.addHeader("authorization", jwt);
 		CloseableHttpResponse proxyResponse = httpclient.execute(httpdelete);
 
