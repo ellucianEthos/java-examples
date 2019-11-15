@@ -19,9 +19,10 @@ public class PostExample {
 
 		//change these variables to match your data
 		String apiKey = "API KEY";
-		String personId = "080c43e1-1782-4ed9-98cf-1aa68810b179";
-		String detailId = "04664c5f-bac6-43bf-abe4-ac785be86416";
-		
+		String personId = "0e0f8b8e-d267-4307-86d1-25af131ee55f";
+		String detailId = "e031411f-b413-4992-80d4-bf7fd55f20ad";
+
+
 		//get new token
 		HttpPost httpPost = new HttpPost("https://integrate.elluciancloud.com/auth");
 		httpPost.addHeader("authorization", "Bearer " + apiKey);
@@ -39,9 +40,10 @@ public class PostExample {
 		HttpPost httpPost2 = new HttpPost("https://integrate.elluciancloud.com/api/person-holds");
 		httpPost2.addHeader("authorization", jwt);
 		httpPost2.addHeader("content-type", "application/vnd.hedtech.integration.v6+json");
-		httpPost2.addHeader("accept", "application/json");
-		HttpEntity requestEntity = EntityBuilder.create().setText("{\"id\":\"00000000-0000-0000-0000-000000000000\",\"person\":{\"id\":\"" + personId +
-				"\"},\"startOn\":\"2012-03-30T04:00:00Z\",\"type\":{\"category\":\"academic\",\"detail\":{\"id\":\"" + detailId + "\"}}}").build();
+		httpPost2.addHeader("accept", "application/vnd.hedtech.integration.v6+json");
+		String payload = "{\"id\":\"00000000-0000-0000-0000-000000000000\",\"person\":{\"id\":\"" + personId +
+				"\"},\"startOn\":\"2012-03-30T04:00:00Z\",\"type\":{\"category\":\"academic\",\"detail\":{\"id\":\"" + detailId + "\"}}}";
+		HttpEntity requestEntity = EntityBuilder.create().setText(payload).build();
 		httpPost2.setEntity(requestEntity);
 		CloseableHttpResponse proxyResponse = httpclient.execute(httpPost2);
 

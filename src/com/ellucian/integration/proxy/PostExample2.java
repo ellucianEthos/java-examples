@@ -39,7 +39,7 @@ public class PostExample2 {
 			.post(proxyPayload)
 			.addHeader("authorization", jwt)
 			.addHeader("content-type", "application/vnd.hedtech.integration.v6+json")
-			.addHeader("accept", "application/json")
+			.addHeader("accept", "application/vnd.hedtech.integration.v6+json")
 			.build();
 		Response proxyResponse = client.newCall(proxyRequest).execute();
 		System.out.println(proxyResponse.body().string());
