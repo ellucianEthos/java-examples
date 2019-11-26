@@ -42,7 +42,7 @@ public class PutExample {
 		httpPut.addHeader("authorization", jwt);
 		httpPut.addHeader("content-type", "application/vnd.hedtech.integration.v6+json");
 		httpPut.addHeader("accept", "application/vnd.hedtech.integration.v6+json");
-		String payload = "{\"endOn\":\"2019-12-31T04:00:00Z\",\"person\":{\"id\":\"" + personId +
+		String payload = "{\"id\":\"" + id + "\",\"endOn\":\"2019-12-31T04:00:00Z\",\"person\":{\"id\":\"" + personId +
 				"\"},\"startOn\":\"2012-03-30T04:00:00Z\",\"type\":{\"category\":\"academic\",\"detail\":{\"id\":\"" + detailId + "\"}}}";
 		HttpEntity requestEntity = EntityBuilder.create().setText(payload).build();
 		httpPut.setEntity(requestEntity);

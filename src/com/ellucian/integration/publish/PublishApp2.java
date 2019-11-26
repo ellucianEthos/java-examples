@@ -53,22 +53,30 @@ public class PublishApp2 {
 		JSONArray cns = new JSONArray();
 		if(capacity > 0 && capacity < 21){
 			for(int i = 0; i < capacity; i++){
-				//create a change-notification object with the appropriate contents
 				String id = UUID.randomUUID().toString();
-				JSONObject resource = new JSONObject()
-						.put("name", "buildings")
+				String personId = UUID.randomUUID().toString();
+				String detailId = UUID.randomUUID().toString();
+
+				//build JSON object for person-holds record
+				JSONObject person = new JSONObject().put("id", personId);
+				JSONObject detail = new JSONObject().put("id", detailId);
+				JSONObject type = new JSONObject().put("category", "academic").put("detail", detail);
+				JSONObject personHold = new JSONObject()
 						.put("id", id)
-						.put("version", "application/vnd.hedtech.integration.v8+json");
-				JSONObject content = new JSONObject()
-						.put("code", "BLD1")
-						.put("title", "Building 1")
-						.put("description", "the first building")
-						.put("id", id);
+						.put("startOn", "2019-11-24T12:00:00Z")
+						.put("person", person)
+						.put("type", type);
+
+				//create a change-notification object with the person-holds record as the content
+				JSONObject resource = new JSONObject()
+						.put("name", "person-holds")
+						.put("id", id)
+						.put("version", "application/vnd.hedtech.integration.v6+json");
 				JSONObject cn = new JSONObject()
 						.put("resource", resource)
 						.put("operation", "replaced")
 						.put("contentType", "resource-representation")
-						.put("content", content);
+						.put("content", personHold);
 				cns.put(cn);
 			}
 		}

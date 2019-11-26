@@ -33,7 +33,7 @@ public class PutExample2 {
 		
 		//PUT a person-holds resource
 		MediaType type = MediaType.parse("application/vnd.hedtech.integration.v6+json");
-		RequestBody proxyPayload = RequestBody.create(type, "{\"endOn\":\"2019-12-31T04:00:00Z\",\"person\":{\"id\":\"" + personId +
+		RequestBody proxyPayload = RequestBody.create(type, "{\"id\":\"" + id + "\",\"endOn\":\"2019-12-31T04:00:00Z\",\"person\":{\"id\":\"" + personId +
 				"\"},\"startOn\":\"2012-03-30T04:00:00Z\",\"type\":{\"category\":\"academic\",\"detail\":{\"id\":\"" + detailId + "\"}}}");
 		Request proxyRequest = new Request.Builder()
 			.url("https://integrate.elluciancloud.com/api/person-holds/" + id)
