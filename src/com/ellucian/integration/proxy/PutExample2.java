@@ -16,9 +16,9 @@ public class PutExample2 {
 
 		//change these variables to match your data
 		String apiKey = "API KEY";
-		String id = "8734be28-9f7e-4d31-963f-654712f37b4b";
-		String personId = "080c43e1-1782-4ed9-98cf-1aa68810b179";
-		String detailId = "04664c5f-bac6-43bf-abe4-ac785be86416";
+		String id = "PERSON HOLDS ID(GUID)";
+		String personId = "PERSONS ID(GUID)";
+		String detailId = "PERSON HOLDS TYPES ID(GUID)";
 
 		//get new token
 		RequestBody payload = RequestBody.create(null, ""); // okhttp requires a payload for POSTs, however the /auth endpoint takes a null payload, which is created here.

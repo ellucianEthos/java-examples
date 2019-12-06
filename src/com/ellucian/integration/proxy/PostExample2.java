@@ -16,8 +16,8 @@ public class PostExample2 {
 
 		//change these variables to match your data
 		String apiKey = "API KEY";
-		String personId = "080c43e1-1782-4ed9-98cf-1aa68810b179";
-		String detailId = "04664c5f-bac6-43bf-abe4-ac785be86416";
+		String personId = "PERSONS ID(GUID)";
+		String detailId = "PERSON HOLDS TYPES ID(GUID)";
 		
 		//get new token
 		RequestBody payload = RequestBody.create(null, ""); // okhttp requires a payload for POSTs, however the /auth endpoint takes a null payload, which is created here.

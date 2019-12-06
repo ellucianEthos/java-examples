@@ -15,7 +15,7 @@ public class DeleteExample2 {
 
 		//change these variables to match your data
 		String apiKey = "API KEY";
-		String id = "a2065aa3-bfe2-48d5-b742-453c2d53da91";
+		String id = "PERSON HOLDS ID(GUID)";
 		
 		//get new token
 		RequestBody payload = RequestBody.create(null, ""); // okhttp requires a payload for POSTs, however the /auth endpoint takes a null payload, which is created here.

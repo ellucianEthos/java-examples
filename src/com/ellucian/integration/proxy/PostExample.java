@@ -19,8 +19,8 @@ public class PostExample {
 
 		//change these variables to match your data
 		String apiKey = "API KEY";
-		String personId = "0e0f8b8e-d267-4307-86d1-25af131ee55f";
-		String detailId = "e031411f-b413-4992-80d4-bf7fd55f20ad";
+		String personId = "PERSONS ID(GUID)";
+		String detailId = "PERSON HOLDS TYPES ID(GUID)";
 
 
 		//get new token

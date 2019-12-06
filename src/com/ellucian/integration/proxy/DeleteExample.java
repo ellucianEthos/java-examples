@@ -19,7 +19,7 @@ public class DeleteExample {
 
 		//change these variables to match your data
 		String apiKey = "API KEY";
-		String id = "8734be28-9f7e-4d31-963f-654712f37b4b";
+		String id = "PERSON HOLDS ID(GUID)";
 		
 		//get new token
 		HttpPost httpPost = new HttpPost("https://integrate.elluciancloud.com/auth");
